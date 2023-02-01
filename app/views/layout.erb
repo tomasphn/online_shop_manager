@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Online Shop Manager</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<%= url('/stylesheets/styles.css') %>">
+  </head>
+
+  <body>
+    <div class="main">
+      <header>
+        <div class="title">
+          <h1>Online Shop Manager</h1>
+          <% if session[:signin] %>
+            <form method="post" action="/signout">
+              <p>
+                You are signed in as <%= session[:signin] %>
+                <button class="sign" type="submit">Sign Out</button>
+              </p>
+            </form>
+          <% end %>
+        </div>
+        <div class="topbar">
+          <h2>
+            <%== yield_content :title %>
+          </h2>
+          <%== yield_content :header_links %>
+        </div>
+      </header>
+
+      <% if session[:errors] %>
+        <% session.delete(:errors).each do |error| %>
+          <div class="error">
+            <p><%= error %></p>
+          </div>
+        <% end %>
+      <% elsif session[:success] %>
+        <div class="success">
+          <p><%= session.delete(:success) %></p>
+        </div>
+      <% end %>
+      <main>
+        <div class="list">
+          <%== yield %>
+        </div>
+      </main>
+    </div>
+    
+  </body>
+
+</html>

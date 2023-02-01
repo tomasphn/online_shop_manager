@@ -1,0 +1,26 @@
+<form action="/shops/<%= @shop[:id] %>/products/new" method="post">
+  <dl>
+    <dt>
+      <label for="product_name">Enter your new product name (35 character max):</label>
+    </dt>
+    <dd>
+      <input name="product_name" placeholder="Product Name" type="text" value="<%= params[:product_name] %>">
+    </dd>
+    <dt>
+      <label for="cost">Enter the cost it takes to produce your new product:</label>
+    </dt>
+    <dd>
+      $<input name="cost" placeholder="0.00" type="text" value="<%= params[:cost] %>">
+    </dd>
+    <dt>
+      <label for="sell_price">Enter the sell price for your product:</label>
+    </dt>
+    <dd>
+      $<input name="sell_price" placeholder="0.00" type="text" value="<%= params[:sell_price] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/shops/<%= @shop[:id] %>">Cancel</a>
+  </fieldset>
+</form>

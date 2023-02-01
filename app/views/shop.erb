@@ -1,0 +1,62 @@
+<ul>
+  <% items_on_page_n(@products, @page).each do |product| %>
+    <li>
+      <div class="list_item">
+        <div class="list_name">
+          <h3><%= product[:name] %></h3>
+        </div>
+        <div class="list_info">
+          <p>Cost: $<%= product[:cost] %></p>
+        <p>Sell price: $<%= product[:sell_price] %></p>
+        <p class="<%= profit_class(product) %>">
+          Profit: $<%= find_profit(product[:cost], product[:sell_price]) %>
+        </p>
+        <p>
+          <a href="/shops/<%= @shop_id %>/products/<%= product[:id] %>/edit">
+            Edit
+          </a>
+        </p>
+        <form action="/shops/<%= @shop_id %>/products/<%= product[:id] %>/delete" method="post">
+          <button type="submit">Delete</button>
+        </form>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<div class="page_controls">
+  <% if less_pages?(@page) %>
+    <a href="/shops/<%=@shop_id %>/page/<%= @page[:current] - 1 %>">
+      Last Page
+    </a>
+  <% end %>
+
+  <% if more_pages?(@page) %>
+    <a href="/shops/<%=@shop_id %>/page/<%= @page[:current] + 1 %>">
+      Next Page
+    </a>
+  <% end %>
+  <p>
+    Page <%= @page[:current] %> of <%= @page[:total] %>
+  </p>
+  <p>Displaying up to 5 items at a time</p>
+</div>
+
+<% content_for :title do %>
+  <h1><%= @products[0][:shop_name] %></h1>
+<% end %>
+
+<% content_for :header_links do %>
+  <a href="/">
+    Back to all shops 
+  </a>
+  <a href="/shops/<%= @shop_id %>/products/new">
+    Add new product 
+  </a> 
+  <a href="/shops/<%= @shop_id %>/edit">
+    Rename shop
+  </a>
+  <form action="/shops/<%= @shop_id %>/delete" method="post">
+    <button type="submit">Delete Shop</button>
+  </form>
+<% end %>

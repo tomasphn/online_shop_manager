@@ -1,0 +1,104 @@
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+button {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  padding: 6px 16px;
+}
+
+div.main {
+  width: 85%;
+  margin: 2.5% 7.5% 0 7.5%;
+  border: 1px solid grey;
+  background-color: #FAF9F6;
+  border-radius: 10px;
+}
+
+div.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+}
+
+div.title > h1 {
+  font-weight: bold;
+}
+
+div.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3%;
+  padding: 0 5%;
+}
+
+div.error {
+  background-color: red;
+}
+
+div.success {
+  background-color: green;
+}
+
+div.list {
+  padding: 0 2% 1% 2%;
+  margin: 0 5% 2% 5%;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+
+div.list_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.list_info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2%;
+}
+
+div.list_info > p {
+  font-weight: bold;
+  font-size: 0.8em;
+  margin: 0;
+  padding: 0;
+}
+
+div.list_info > * {
+  text-align: center;
+}
+
+div.page_controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2%;
+}
+
+div.page_controls > * {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+p.high_profit {
+  color: green;
+}
+
+p.medium_profit {
+  color: orange;
+}
+
+p.low_profit {
+  color: red;
+}

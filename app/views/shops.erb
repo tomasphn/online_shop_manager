@@ -1,0 +1,41 @@
+
+<ul>
+  <% items_on_page_n(@shops, @page).each do |shop| %>
+    <li>
+      <div class="list_item">
+        <div class="list_name">
+          <a href="/shops/<%= shop[:id] %>">
+            <h3><%= shop[:name] %></h3>
+          </a>
+        </div>
+        <div class="list_info">
+          <p>Number of products: <%= shop[:product_count] %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<div class="page_controls">
+  <% if less_pages?(@page) %>
+    <a href="/shops/page/<%= @page[:current] - 1 %>">
+      Last Page
+    </a>
+  <% end %>
+  <% if more_pages?(@page) %>
+    <a href="/shops/page/<%= @page[:current] + 1 %>">
+      Next Page
+    </a>
+  <% end %>
+  <p>
+    Page <%= @page[:current] %> of <%= @page[:total] %>
+  </p>
+  <p>Displaying up to 5 items at a time</p>
+</div>
+
+
+<% content_for :title do %>
+  Your Shops
+<% end %>
+<% content_for :header_links do %>
+  <a href="/shops/new">New Shop</a>
+<% end %>

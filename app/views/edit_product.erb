@@ -1,0 +1,26 @@
+<form action="/shops/<%= params[:shop_id] %>/products/<%= @product[:id] %>/edit" method="post">
+  <dl>
+    <dt>
+      <label for="product_name">Edit name for product:</label>
+    </dt>
+    <dd>
+      <input name="product_name" placeholder="<%= @product[:name] %>" type="text" value="<%= params[:product_name] %>">
+    </dd>
+    <dt>
+       <label for="cost">Edit production cost for product:</label>
+    </dt>
+    <dd>
+      $<input name="cost" placeholder="<%= @product[:cost] %>" type="text" value="<%= params[:cost] %>">
+    </dd>
+    <dt>
+      <label for="sell_price">Edit sell price for product:</label>
+    </dt>
+    <dd>
+      $<input name="sell_price" placeholder="<%= @product[:sell_price] %>" type="text" value="<%= params[:sell_price] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/shops/<%= params[:shop_id] %>">Cancel</a>
+  </fieldset>
+</form>
