@@ -60,7 +60,7 @@ end
 # Checks username and password against list of registered users
 def valid_user?(user, pass)
   key = user.to_sym
-  logins = { admin: "secret" }
+  logins = { admin: "secret", guest: "pass" }
   logins[key] == pass
 end
 
