@@ -1,5 +1,5 @@
-CREATE DATABASE shops;      --Creates and connects to shop database
-\connect shops;
+-- CREATE DATABASE shops;      --Creates and connects to shop database
+-- \connect shops;
 
 CREATE TABLE shops (
   id serial PRIMARY KEY,

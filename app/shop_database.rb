@@ -2,7 +2,13 @@ require "pg"
 
 class ShopDatabase
   def initialize(logger)
-    @db = PG.connect(dbname: "shops")
+    @db = PG.connect(
+      host: "dpg-cfe749sgqg46rpmmi9j0-a.oregon-postgres.render.com",
+      port: 5432,
+      dbname: "shops_j6z3",
+      user: "shops_j6z3_user",
+      password: "RwxUojIcZBk25IpFcAwzQTZgRV1X9F4p"
+    )
     @logger = logger
   end
 
