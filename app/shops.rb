@@ -2,6 +2,8 @@ require "sinatra"
 require "sinatra/reloader"
 require "sinatra/content_for"
 require "tilt/erubis"
+require "dotenv"
+Dotenv.load
 
 require_relative "shop_database.rb"
 require_relative "helpers.rb"
