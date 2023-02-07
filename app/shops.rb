@@ -28,6 +28,10 @@ before do
   @database = ShopDatabase.new(logger)
 end
 
+get '/env' do
+  ENV.map { |k,v| "#{k}: #{v}" }.join("<br>")
+end
+
 # Sign in page
 get "/signin" do
   redirect "/" if user_signed_in?
