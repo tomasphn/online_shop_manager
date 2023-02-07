@@ -3,7 +3,13 @@ require "pg"
 class ShopDatabase
   def initialize(logger)
     if Sinatra::Base.production?
-      @db = PG.connect(ENV["DATABASE_URL"])
+      @db = PG.connect(
+      host: ENV["DB_HOST"],
+      port: ENV["DB_PORT"],
+      dbname: ENV["DB_NAME"],
+      user: ENV["DB_USER"],
+      password: ENV["DB_PASSWORD"]
+    )
     else
       @db = PG.connect(dbname: "shops")
     end
